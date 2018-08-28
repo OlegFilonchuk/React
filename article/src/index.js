@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
-import List from './List';
+import ArticleList from './components/ArticleList';
 import {articles} from './fixtures';
 import './index.css';
 
-render(<List articles = {articles}/>, document.getElementById('root'));
+render(<ArticleList articles = {articles}/>, document.getElementById('root'));
