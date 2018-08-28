@@ -1,7 +1,17 @@
 import React from 'react';
 import CommentList from "./CommentList";
+import PropTypes from 'prop-types';
 
 export default class Article extends React.Component {
+    static propTypes = {
+        article: PropTypes.shape({
+            text: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
+            id: PropTypes.string.isRequired,
+            comments: PropTypes.array
+        }).isRequired
+    };
+
     constructor(props) {
         super(props);
         this.state = {
