@@ -2,8 +2,7 @@ import React from 'react';
 import CommentList from "./CommentList";
 import PropTypes from 'prop-types';
 
-function Article(props) {
-    const {article, isOpen, toggleOpen} = props;
+function Article({article, isOpen, toggleOpen}) {
 
     function getBody() {
         return isOpen ? <section>
@@ -16,7 +15,9 @@ function Article(props) {
     return (
         <div>
             <h3>{article.title}</h3>
-            <button onClick={toggleOpen}>
+            <button
+                onClick={toggleOpen}
+            >
                 {isOpen ? 'close' : 'open'}
             </button>
             {getBody()}
@@ -31,7 +32,7 @@ Article.propTypes = {
         id: PropTypes.string.isRequired,
         comments: PropTypes.array
     }).isRequired,
-    isOpen: PropTypes.bool,
+    isOpen: PropTypes.bool.isRequired,
     toggleOpen: PropTypes.func.isRequired
 };
 

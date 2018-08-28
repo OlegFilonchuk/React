@@ -6,6 +6,8 @@ export default OriginalComponent => class ToggleableComponent extends React.Comp
         isOpen: false
     };
 
+
+
     render() {
         return <OriginalComponent {...this.props} {...this.state} toggleOpen = {this.toggleOpen}/>
     }

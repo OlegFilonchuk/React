@@ -2,17 +2,25 @@ import React from 'react';
 
 export default OriginalComponent => class accordionComponent extends React.Component {
     state = {
-        openElementId: null
+        openElementId: ''
     };
 
-    toggleOpenElement = id => ev => {
-        if (this.state.openElementId === id) {
-            this.setState({
-                openElementId: null
-            });
-        } else {
-            this.setState({openElementId: id})
-        }
+    componentDidMount() {
+        console.log('---', 'mounted');
+    }
+
+    componentDidUpdate() {
+        console.log('---', 'updated');
+    }
+
+    componentWillUnmount() {
+        console.log('---', 'unmounted');
+    }
+
+    toggleOpenElement = id => () => {
+        this.setState({
+            openElementId: id === this.state.openElementId ? '' : id
+        });
     };
 
     render() {
