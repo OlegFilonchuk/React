@@ -3,9 +3,7 @@ import Comment from './Comment';
 import PropTypes from 'prop-types';
 import toggleOpen from '../decorators/toggleOpen';
 
-function CommentList(props) {
-
-    const {comments, isOpen, toggleOpen} = props;
+function CommentList({comments = [], isOpen, toggleOpen}) {
 
     function getBody() {
         const commentsElements = comments.map(comment => <li
@@ -25,10 +23,6 @@ function CommentList(props) {
 
 CommentList.propTypes = {
     comments: PropTypes.array.isRequired
-};
-
-CommentList.defaultProps = {
-    comments: []
 };
 
 export default toggleOpen(CommentList);
