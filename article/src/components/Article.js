@@ -1,7 +1,7 @@
 import React from 'react';
 import CommentList from "./CommentList";
 import PropTypes from 'prop-types';
-import ToggleOpen from '../decorators/toggleOpen';
+import toggleOpen from '../decorators/toggleOpen';
 
 function Article(props) {
     const {article, isOpen, toggleOpen} = props;
@@ -36,4 +36,4 @@ Article.propTypes = {
     toggleOpen: PropTypes.func.isRequired
 };
 
-export default ToggleOpen(Article);
+export default toggleOpen(Article);

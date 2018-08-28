@@ -1,47 +1,34 @@
 import React from 'react';
 import Comment from './Comment';
 import PropTypes from 'prop-types';
+import toggleOpen from '../decorators/toggleOpen';
 
-export default class CommentList extends React.Component {
-    static propTypes = {
-      comments: PropTypes.array.isRequired
-    };
+function CommentList(props) {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            isOpen: false
-        };
+    const {comments, isOpen, toggleOpen} = props;
 
-    }
-    static defaultProps = {
-      comments: []
-    };
-
-    getBody = () => {
-        const commentsElements = this.props.comments.map(comment => <li
+    function getBody() {
+        const commentsElements = comments.map(comment => <li
             key={comment.id}>
             <Comment comment = {comment}/>
         </li>);
-        return (!this.state.isOpen ? null : commentsElements.length ? <ul>{commentsElements}</ul> : <div>No comments yet</div>);
-    };
-
-    getButtonText = () => {
-      return (this.state.isOpen ? 'Hide comments' : 'Show comments');
-    };
-
-    commentButtonHandler = () => {
-      this.setState({
-          isOpen: !this.state.isOpen
-      });
-    };
-
-    render() {
-        return(
-            <div>
-                <button onClick={this.commentButtonHandler}>{this.getButtonText()}</button>
-                {this.getBody()}
-            </div>
-        );
+        return (!isOpen ? null : commentsElements.length ? <ul>{commentsElements}</ul> : <div>No comments yet</div>);
     }
+
+    return(
+        <div>
+            <button onClick={toggleOpen}>{isOpen ? 'Hide comments' : 'Show comments'}</button>
+            {getBody()}
+        </div>
+    );
 }
+
+CommentList.propTypes = {
+    comments: PropTypes.array.isRequired
+};
+
+CommentList.defaultProps = {
+    comments: []
+};
+
+export default toggleOpen(CommentList);
