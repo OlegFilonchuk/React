@@ -5,17 +5,7 @@ export default OriginalComponent => class accordionComponent extends React.Compo
         openElementId: ''
     };
 
-    componentDidMount() {
-        console.log('---', 'mounted');
-    }
 
-    componentDidUpdate() {
-        console.log('---', 'updated');
-    }
-
-    componentWillUnmount() {
-        console.log('---', 'unmounted');
-    }
 
     toggleOpenElement = id => () => {
         this.setState({

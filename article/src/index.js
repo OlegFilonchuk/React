@@ -1,8 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
-import ArticleList from './components/ArticleList';
+import App from './components/App';
 import {articles} from './fixtures';
 import './index.css';
 
 
-render(<ArticleList articles = {articles}/>, document.getElementById('root'));
+render(<App articles = {articles}/>, document.getElementById('root'));
