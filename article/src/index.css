@@ -5,3 +5,15 @@ body {
     background: #eeeeee;
 }
 
+/*.fade-entering {*/
+    /*height: 0;*/
+/*}*/
+/*.fade-entered {*/
+    /*height: 200px;*/
+/*}*/
+/*.fade-exiting{*/
+    /*height: 0;*/
+/*}*/
+/*.fade-exited {*/
+    /*height: 0;*/
+/*}*/

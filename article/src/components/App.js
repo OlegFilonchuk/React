@@ -22,7 +22,7 @@ class App extends Component {
         return (
             <div>
                 <UserForm/>
-                <Select options={options} value={this.state.selection} onChange={this.changeSelection}/>
+                <Select options={options} value={this.state.selection} onChange={this.changeSelection} isMulti/>
                 <ArticleList articles={this.props.articles}/>
             </div>
         );
