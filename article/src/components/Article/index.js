@@ -1,7 +1,8 @@
 import React from 'react';
-import CommentList from "./CommentList";
+import CommentList from "../CommentList";
 import PropTypes from 'prop-types';
 import {Transition} from 'react-transition-group';
+import './style.css';
 
 function Article({article, isOpen, toggleOpen}) {
 
@@ -21,16 +22,16 @@ function Article({article, isOpen, toggleOpen}) {
     };
 
     const transitionStyles = {
-        entering: {opacity: 0, height: 0},
-        entered: {opacity: 1, height: '200px'},
-        exiting: {opacity: 1, height: '200px'},
-        exited: {opacity: 0, height: 0}
+        entering: {opacity: 0},
+        entered: {opacity: 1},
+        exiting: {opacity: 1},
+        exited: {opacity: 0}
     };
 
     return (
-        <div>
+        <div className={'article'}>
             <h3>{article.title}</h3>
-            <button onClick={toggleOpen}>
+            <button onClick={toggleOpen} className={'article__button'}>
                 {isOpen ? 'close' : 'open'}
             </button>
             <Transition

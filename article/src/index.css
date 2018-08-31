@@ -1,8 +1,23 @@
 body {
     margin: 0;
-    padding: 10px;
+    padding: 20px;
     font-family: sans-serif;
     background: #eeeeee;
+}
+.Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+    background-color: lightblue !important;
+    color: #4a90e2;
+}
+.Selectable .DayPicker-Day {
+    border-radius: 0 !important;
+}
+.Selectable .DayPicker-Day--start {
+    border-top-left-radius: 50% !important;
+    border-bottom-left-radius: 50% !important;
+}
+.Selectable .DayPicker-Day--end {
+    border-top-right-radius: 50% !important;
+    border-bottom-right-radius: 50% !important;
 }
 
 /*.fade-entering {*/
@@ -17,3 +32,9 @@ body {
 /*.fade-exited {*/
     /*height: 0;*/
 /*}*/
+.comments-form {
+    /*text-align: center;*/
+}
+.red {
+    outline: 2px solid red;
+}

@@ -5,9 +5,21 @@ export default OriginalComponent => class accordionComponent extends React.Compo
         openElementId: ''
     };
 
-
-
     toggleOpenElement = id => () => {
+        // tried to fix article's closing:
+
+       /* if (this.state.openElementId === id) {
+            setTimeout(()=>{
+                this.setState(
+                    {openElementId: ''}
+                    )
+            }, 500);
+        } else {
+            this.setState({
+                openElementId: id
+            });
+        }*/
+
         this.setState({
             openElementId: id === this.state.openElementId ? '' : id
         });

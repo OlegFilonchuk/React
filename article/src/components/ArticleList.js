@@ -1,5 +1,5 @@
 import React from 'react';
-import Article from './Article';
+import Article from './Article/';
 import PropTypes from 'prop-types';
 import accordion from '../decorators/accordion';
 
