@@ -5,8 +5,8 @@ body {
     background: #eeeeee;
 }
 .Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
-    background-color: lightblue !important;
-    color: #4a90e2;
+    background-color: #4a90e2 !important;
+    color: #fff;
 }
 .Selectable .DayPicker-Day {
     border-radius: 0 !important;

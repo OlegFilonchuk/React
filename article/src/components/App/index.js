@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import ArticleList from './ArticleList';
-import UserForm from './UserForm';
+import ArticleList from '../ArticleList';
+import UserForm from '../UserForm';
 import Select from 'react-select';
-import Calendar from "./Calendar";
+import Calendar from "../Calendar";
+import Counter from '../../components/Counter';
 
 class App extends Component {
 
@@ -22,8 +23,9 @@ class App extends Component {
 
         return (
             <div>
-                <Calendar />
+                <Counter counter={}/>
                 <UserForm/>
+                <Calendar/>
                 <Select options={options} value={this.state.selection} onChange={this.changeSelection} isMulti/>
                 <ArticleList articles={this.props.articles}/>
             </div>
