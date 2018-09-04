@@ -14,6 +14,10 @@ function Article({article, isOpen, toggleOpen}) {
         </section> : null;
     }
 
+    function handleDelete() {
+        console.log('deleted article');
+    }
+
     const duration = 500;
 
     const defaultStyle = {
@@ -32,7 +36,10 @@ function Article({article, isOpen, toggleOpen}) {
         <div className={'article'}>
             <h3>{article.title}</h3>
             <button onClick={toggleOpen} className={'article__button'}>
-                {isOpen ? 'close' : 'open'}
+                {isOpen ? 'Close' : 'Open'}
+            </button>
+            <button onClick={handleDelete} className={'article__button'}>
+                Delete article
             </button>
             <Transition
                 in={isOpen}

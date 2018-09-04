@@ -16,18 +16,18 @@ class App extends Component {
     };
 
     render() {
-        const options = this.props.articles.map(article => ({
+        /*const options = this.props.articles.map(article => ({
             label: article.title,
             value: article.id
-        }));
+        }));*/
 
         return (
             <div>
                 <Counter/>
                 <UserForm/>
                 <Calendar/>
-                <Select options={options} value={this.state.selection} onChange={this.changeSelection} isMulti/>
-                <ArticleList articles={this.props.articles}/>
+                {/*<Select options={options} value={this.state.selection} onChange={this.changeSelection} isMulti/>*/}
+                <ArticleList/>
             </div>
         );
     }

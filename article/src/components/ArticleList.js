@@ -2,6 +2,7 @@ import React from 'react';
 import Article from './Article/';
 import PropTypes from 'prop-types';
 import accordion from '../decorators/accordion';
+import {connect} from 'react-redux';
 
 function ArticleList({articles, openElementId, toggleOpen}) {
 
@@ -28,4 +29,4 @@ ArticleList.propTypes = {
 };
 
 
-export default accordion(ArticleList);
+export default connect(({articles}) => ({articles}))(accordion(ArticleList));

@@ -5,5 +5,5 @@ import {articles} from './fixtures';
 import './index.css';
 
 
-render(<Root articles = {articles}/>, document.getElementById('root'));
+render(<Root />, document.getElementById('root'));
 
