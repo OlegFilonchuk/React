@@ -1,9 +1,12 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {increment} from '../AC/'
 
 class Counter extends PureComponent {
     handleIncrement = () => {
         console.log('increment');
+        this.props.increment();
     };
 
     render() {
@@ -20,4 +23,6 @@ Counter.propTypes = {
     counter: PropTypes.number
 };
 
-export default Counter;
+export default connect(state => ({
+    counter: state.count
+}), { increment })(Counter);

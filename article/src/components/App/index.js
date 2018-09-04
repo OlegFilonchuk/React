@@ -23,7 +23,7 @@ class App extends Component {
 
         return (
             <div>
-                <Counter counter={}/>
+                <Counter/>
                 <UserForm/>
                 <Calendar/>
                 <Select options={options} value={this.state.selection} onChange={this.changeSelection} isMulti/>
