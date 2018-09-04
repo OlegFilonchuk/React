@@ -1,0 +1,3 @@
+export const INCREMENT = 'INCREMENT';
+
+export const DELETE_ARTICLES = 'DELETE_ARTICLES';
