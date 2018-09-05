@@ -1,10 +1,13 @@
 import React from 'react';
 import CommentList from "../CommentList";
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {Transition} from 'react-transition-group';
+import {deleteArticle} from '../../AC/';
 import './style.css';
 
-function Article({article, isOpen, toggleOpen}) {
+function Article(props) {
+    const {article, isOpen, toggleOpen} = props;
 
     function getBody() {
         return isOpen ? <section>
@@ -15,7 +18,9 @@ function Article({article, isOpen, toggleOpen}) {
     }
 
     function handleDelete() {
-        console.log('deleted article');
+        const {deleteArticle, article} = props;
+        deleteArticle(article.id);
+        console.log(`deleted article "${article.title}".`);
     }
 
     const duration = 500;
@@ -72,4 +77,4 @@ Article.propTypes = {
     toggleOpen: PropTypes.func.isRequired
 };
 
-export default Article;
+export default connect(null, { deleteArticle })(Article);
