@@ -12,7 +12,6 @@ class Calendar extends React.Component {
     };
 
     render() {
-        console.log(this.props);
         const { from, to } = this.props.range;
         const selectedRange = from && to && `${from.toDateString()} - ${to.toDateString()}`;
         return (

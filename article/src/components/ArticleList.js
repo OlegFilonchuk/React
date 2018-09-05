@@ -1,25 +1,28 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Article from './Article/';
 import PropTypes from 'prop-types';
 import accordion from '../decorators/accordion';
 import {connect} from 'react-redux';
 
-function ArticleList({articles, openElementId, toggleOpen}) {
+class ArticleList extends Component {
 
-    const articleElements = articles.map(article => <li key={article.id}>
-        <Article
-            article={article}
-            isOpen={article.id === openElementId}
-            toggleOpen={toggleOpen(article.id)}
-        />
-    </li>);
+    render() {
+        const {articles, openElementId, toggleOpen} = this.props;
+        const articleElements = articles.map(article => <li key={article.id}>
+            <Article
+                article={article}
+                isOpen={article.id === openElementId}
+                toggleOpen={toggleOpen(article.id)}
+            />
+        </li>);
 
+        return (
+            <ul>
+                {articleElements}
+            </ul>
+        );
 
-    return (
-        <ul>
-            {articleElements}
-        </ul>
-    );
+    }
 }
 
 ArticleList.propTypes = {
@@ -29,4 +32,14 @@ ArticleList.propTypes = {
 };
 
 
-export default connect(({articles}) => ({articles}))(accordion(ArticleList));
+export default connect(({filters, articles}) => {
+    const {selected, dateRange: {from, to}} = filters;
+
+    const filteredArticles = articles.filter(article => {
+        const published = Date.parse(article.date);
+        return (!selected.length || selected.includes(article.id)) &&
+            (!from || !to || (published > from && published < to))
+    });
+
+    return {articles: filteredArticles};
+})(accordion(ArticleList));

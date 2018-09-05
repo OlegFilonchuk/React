@@ -21,3 +21,10 @@ export function changeDateRange(dateRange) {
         payload: {dateRange}
     }
 }
+
+export function changeSelection(selected) {
+    return {
+        type: CHANGE_SELECTION,
+        payload: { selected }
+    }
+}

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Calendar from "./Calendar";
-import Select from 'react-select';
+import SelectFilter from './SelectFilter';
 
 class Filters extends Component {
 
@@ -8,7 +8,7 @@ class Filters extends Component {
         return (
             <div>
                 <Calendar/>
-                <Select />
+                <SelectFilter />
             </div>
         );
     }
