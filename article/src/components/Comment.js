@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {commentSelector} from '../selectors/';
 
-export default function Comment(props) {
+function Comment(props) {
 
     const {user, text} = props.comment;
     return(
@@ -13,9 +15,15 @@ export default function Comment(props) {
 }
 
 Comment.propTypes = {
+    id: PropTypes.string.isRequired,
+    //from connect:
     comment: PropTypes.shape({
         user: PropTypes.string.isRequired,
         text: PropTypes.string.isRequired,
         id: PropTypes.string.isRequired
     }).isRequired
 };
+
+export default connect((state, ownProps) => {
+    return {comment: commentSelector(state, ownProps)}
+})(Comment)

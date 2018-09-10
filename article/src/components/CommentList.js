@@ -7,9 +7,9 @@ import CommentForm from './CommentForm';
 function CommentList({comments = [], isOpen, toggleOpen}) {
 
     function getBody() {
-        const commentsElements = comments.map(comment => <li
-            key={comment.id}>
-            <Comment comment = {comment}/>
+        const commentsElements = comments.map(id => <li
+            key={id}>
+            <Comment id = {id}/>
         </li>);
         return (!isOpen ? null : commentsElements.length ? <div><CommentForm/><ul>{commentsElements}</ul></div> : <div>No comments yet</div>);
     }
