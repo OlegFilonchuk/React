@@ -13,7 +13,8 @@
     "react-select": "^2.0.0",
     "react-transition-group": "^2.4.0",
     "redux": "^4.0.0",
-    "reselect": "latest"
+    "reselect": "latest",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",

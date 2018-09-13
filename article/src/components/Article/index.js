@@ -13,7 +13,7 @@ function Article(props) {
         return isOpen ? <section>
             {article.text}
             <hr/>
-            <div><CommentList comments={article.comments}/></div>
+            <div><CommentList article={article}/></div>
         </section> : null;
     }
 

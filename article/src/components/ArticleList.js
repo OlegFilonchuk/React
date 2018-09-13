@@ -8,8 +8,8 @@ import {filtrateArticlesSelector} from '../selectors/';
 class ArticleList extends Component {
 
     render() {
-        console.log('rerender articleList');
         const {articles, openElementId, toggleOpen} = this.props;
+
         const articleElements = articles.map(article => <li key={article.id}>
             <Article
                 article={article}

@@ -4,27 +4,38 @@ import PropTypes from 'prop-types';
 import toggleOpen from '../decorators/toggleOpen';
 import CommentForm from './CommentForm';
 
-function CommentList({comments = [], isOpen, toggleOpen}) {
+function CommentList({article, isOpen, toggleOpen}) {
 
-    function getBody() {
-        const commentsElements = comments.map(id => <li
-            key={id}>
-            <Comment id = {id}/>
-        </li>);
-        return (!isOpen ? null : commentsElements.length ? <div><CommentForm/><ul>{commentsElements}</ul></div> : <div>No comments yet</div>);
+    function getBody({article: {comments=[], id}, isOpen}) {
+        if (!isOpen) return null;
+        if (!comments.length) return (
+            <div>
+                <p>No comments yet</p>
+                <CommentForm articleId={id}/>
+            </div>
+        );
+
+        return (
+            <div>
+                <ul>
+                    {comments.map(id => <li key={id}><Comment id={id}/></li>)}
+                </ul>
+                <CommentForm articleId={id}/>
+            </div>
+        )
     }
 
     return(
         <div>
             <button onClick={toggleOpen}>{isOpen ? 'Hide comments' : 'Show comments'}</button>
             <br/>
-            {getBody()}
+            {getBody({article, isOpen})}
         </div>
     );
 }
 
 CommentList.propTypes = {
-    comments: PropTypes.array.isRequired
+    comments: PropTypes.array
 };
 
 export default toggleOpen(CommentList);

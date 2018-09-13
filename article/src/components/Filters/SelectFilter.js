@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Select from 'react-select';
 import {connect} from 'react-redux';
 import {changeSelection} from "../../AC/";
+import {objToArr} from '../../helpers';
 
 class SelectFilter extends Component {
     handleChange = selected => {
@@ -11,6 +12,7 @@ class SelectFilter extends Component {
     render() {
         const {articles} = this.props;
         const options = articles.map(article => ({label: article.title, value: article.id}));
+
         return (
             <div>
                 <Select
@@ -25,5 +27,5 @@ class SelectFilter extends Component {
 
 export default connect(state => ({
     selected: state.filters.selected,
-    articles: state.articles
+    articles: objToArr(state.articles)
 }), { changeSelection })(SelectFilter);

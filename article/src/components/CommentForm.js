@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {addComment} from '../AC/';
 
 class CommentForm extends Component {
     state = {
@@ -19,6 +21,7 @@ class CommentForm extends Component {
 
     handleSubmit = ev => {
         ev.preventDefault();
+        this.props.addComment(this.state, this.props.articleId);
         this.setState({
             user:'',
             text:''
@@ -52,7 +55,7 @@ class CommentForm extends Component {
                 >
                 </textarea>
                 <br/>
-                <input type="submit" value={'Submit'}/>
+                <input type="submit" value="Submit"/>
                 <hr/>
             </form>
         );
@@ -70,4 +73,4 @@ const limits = {
     }
 };
 
-export default CommentForm;
+export default connect(null, {addComment})(CommentForm);
